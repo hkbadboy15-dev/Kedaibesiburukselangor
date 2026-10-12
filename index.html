@@ -2,28 +2,240 @@
 <html lang="ms">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kedai Besi Buruk Selangor | Beli Besi Buruk</title>
-  <meta name="description" content="Kedai besi buruk di Selangor. Hubungi kami untuk pertanyaan mengenai pembelian besi buruk dan logam terpakai.">
-  <link rel="canonical" href="https://kedaibesiburukselangor.netlify.app/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Kedai Besi Buruk Selangor membeli besi buruk dan logam terpakai. Hubungi kami untuk pertanyaan dan harga terkini.">
+  <meta name="theme-color" content="#123c2d">
+  <title>Kedai Besi Buruk Selangor | Pembelian Besi Buruk & Logam</title>
+  <style>
+    :root {
+      --green: #123c2d;
+      --green-2: #1b5a40;
+      --lime: #d9f36a;
+      --ink: #17231d;
+      --muted: #647168;
+      --paper: #f5f7f2;
+      --white: #fff;
+      --line: #e3e9e1;
+      --radius: 22px;
+      --shadow: 0 18px 48px rgba(15, 43, 29, .12);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 36px)); margin-inline: auto; }
+    .topbar { background: var(--green); color: #fff; font-size: .88rem; }
+    .topbar-inner { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; }
+    .topbar span:last-child { color: var(--lime); font-weight: 700; }
+    header { background: rgba(255,255,255,.94); border-bottom: 1px solid var(--line); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 17px 0; }
+    .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; font-weight: 850; line-height: 1.15; }
+    .brand-mark { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 14px; background: var(--lime); color: var(--green); font-size: 1.4rem; }
+    .brand small { display: block; color: var(--muted); font-size: .72rem; font-weight: 650; margin-top: 4px; }
+    .nav-cta { text-decoration: none; border-radius: 999px; padding: 11px 17px; background: var(--green); color: #fff; font-weight: 750; font-size: .92rem; }
+    .hero { padding: 54px 0 46px; }
+    .hero-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 34px; align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; background: #e8efdf; color: var(--green); border-radius: 999px; padding: 7px 12px; font-size: .82rem; font-weight: 800; letter-spacing: .02em; }
+    h1 { margin: 18px 0 16px; font-size: clamp(2.25rem, 5vw, 4.25rem); line-height: 1.06; letter-spacing: -.045em; }
+    h1 em { color: var(--green-2); font-style: normal; }
+    .hero p { color: #526057; font-size: 1.08rem; max-width: 570px; margin: 0 0 24px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { display: inline-flex; justify-content: center; align-items: center; gap: 9px; padding: 13px 18px; border-radius: 13px; text-decoration: none; font-weight: 800; }
+    .btn-primary { background: var(--green); color: #fff; box-shadow: 0 9px 22px rgba(18,60,45,.18); }
+    .btn-secondary { background: #fff; color: var(--green); border: 1px solid #d9e2d7; }
+    .trust { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 25px; color: var(--muted); font-size: .9rem; }
+    .trust span::before { content: "✓"; color: var(--green-2); font-weight: 900; margin-right: 7px; }
+    .hero-art { min-height: 350px; border-radius: 30px; padding: 24px; color: #fff; background: linear-gradient(145deg, rgba(12,48,34,.88), rgba(20,83,57,.9)), url('https://images.unsplash.com/photo-1567789884554-0b844b597180?auto=format&fit=crop&w=1200&q=85') center/cover; box-shadow: var(--shadow); display: flex; flex-direction: column; justify-content: flex-end; position: relative; overflow: hidden; }
+    .hero-art::before { content: "♻"; position: absolute; top: 18px; right: 24px; font-size: 5rem; color: rgba(217,243,106,.88); line-height: 1; }
+    .art-label { font-size: .78rem; text-transform: uppercase; letter-spacing: .12em; color: var(--lime); font-weight: 850; }
+    .hero-art h2 { font-size: 1.8rem; line-height: 1.15; margin: 8px 0; max-width: 340px; }
+    .hero-art p { color: rgba(255,255,255,.82); margin: 0; font-size: .95rem; }
+    .quick-info { margin-top: -4px; position: relative; }
+    .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); background: #fff; border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 10px 30px rgba(15,43,29,.05); }
+    .info-item { padding: 19px 22px; display: flex; gap: 12px; align-items: center; }
+    .info-item + .info-item { border-left: 1px solid var(--line); }
+    .info-icon { width: 42px; height: 42px; flex: 0 0 42px; display: grid; place-items: center; border-radius: 13px; background: #edf3e6; font-size: 1.2rem; }
+    .info-item strong { display: block; font-size: .96rem; }
+    .info-item small { display: block; color: var(--muted); font-size: .82rem; }
+    section.content { padding: 76px 0; }
+    .section-head { max-width: 660px; margin: 0 auto 30px; text-align: center; }
+    .section-head .eyebrow { margin-bottom: 10px; }
+    h2.section-title { font-size: clamp(1.8rem, 3vw, 2.65rem); letter-spacing: -.035em; line-height: 1.15; margin: 0 0 12px; }
+    .section-head p { margin: 0; color: var(--muted); }
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .service-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 25px; }
+    .service-icon { display: grid; place-items: center; width: 54px; height: 54px; border-radius: 16px; background: #edf3e6; font-size: 1.55rem; margin-bottom: 18px; }
+    .service-card h3 { margin: 0 0 8px; font-size: 1.16rem; }
+    .service-card p { margin: 0; color: var(--muted); font-size: .95rem; }
+    .about { background: #eaf0e5; }
+    .about-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 38px; align-items: center; }
+    .about-panel { background: var(--green); color: #fff; padding: 30px; border-radius: 26px; min-height: 270px; display: flex; flex-direction: column; justify-content: flex-end; }
+    .about-panel .big { color: var(--lime); font-size: 3.3rem; line-height: 1; font-weight: 900; }
+    .about-panel p { margin: 12px 0 0; color: rgba(255,255,255,.8); }
+    .about-copy h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); line-height: 1.15; margin: 0 0 15px; }
+    .about-copy p { color: #526057; }
+    .about-copy ul { padding-left: 1.2rem; }
+    .about-copy li { margin: 7px 0; }
+    .contact { background: var(--green); color: #fff; }
+    .contact-grid { display: grid; grid-template-columns: 1fr auto; gap: 25px; align-items: center; }
+    .contact h2 { font-size: clamp(1.9rem, 3vw, 2.8rem); line-height: 1.12; margin: 0 0 12px; }
+    .contact p { color: rgba(255,255,255,.78); max-width: 620px; margin: 0; }
+    .contact .btn-primary { background: var(--lime); color: var(--green); box-shadow: none; }
+    .contact .btn-secondary { background: transparent; border-color: rgba(255,255,255,.3); color: #fff; }
+    footer { background: #0b2b20; color: rgba(255,255,255,.72); padding: 22px 0; font-size: .88rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .float-wa { position: fixed; right: 18px; bottom: 18px; z-index: 10; display: flex; align-items: center; gap: 8px; background: #20b967; color: white; padding: 13px 17px; border-radius: 999px; box-shadow: 0 10px 28px rgba(0,0,0,.2); text-decoration: none; font-weight: 850; }
+    @media (max-width: 760px) {
+      .topbar-inner { justify-content: center; text-align: center; }
+      .topbar-inner span:first-child { display: none; }
+      .nav { padding: 13px 0; }
+      .nav-cta { padding: 10px 12px; font-size: .82rem; }
+      .brand { font-size: .92rem; }
+      .brand-mark { width: 39px; height: 39px; }
+      .hero { padding: 35px 0 30px; }
+      .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero-art { min-height: 270px; }
+      .info-grid { grid-template-columns: 1fr; }
+      .info-item + .info-item { border-left: 0; border-top: 1px solid var(--line); }
+      section.content { padding: 55px 0; }
+      .service-grid { grid-template-columns: 1fr; }
+      .service-card { padding: 22px; }
+      .about-panel { min-height: 210px; }
+      .contact-grid { align-items: start; }
+      .float-wa { right: 12px; bottom: 12px; padding: 12px 14px; }
+    }
+  </style>
 </head>
-<body style="font-family:Arial,sans-serif;max-width:800px;margin:40px auto;padding:20px;line-height:1.6;color:#222">
+<body>
+  <!-- PENTING: Gantikan nombor contoh di bawah dengan nombor sebenar anda.
+       Gunakan format antarabangsa tanpa tanda +, ruang atau sengkang untuk pautan:
+       contoh Malaysia: 601175719389 -->
+  <div class="topbar">
+    <div class="wrap topbar-inner">
+      <span>Pembelian besi buruk &amp; logam terpakai</span>
+      <span>Hubungi kami untuk pertanyaan harga</span>
+    </div>
+  </div>
+
   <header>
-    <h1>Kedai Besi Buruk Selangor</h1>
-    <p>Pembelian Besi Buruk dan Logam Terpakai</p>
+    <div class="wrap nav">
+      <a class="brand" href="#utama" aria-label="Kedai Besi Buruk Selangor - Laman utama">
+        <span class="brand-mark">♻</span>
+        <span>Kedai Besi Buruk<small>SELANGOR · KITAR SEMULA LOGAM</small></span>
+      </a>
+      <a class="nav-cta" href="#hubungi">Hubungi Kami ↗</a>
+    </div>
   </header>
+
   <main>
-    <h2>Selamat Datang</h2>
-    <p>Selamat datang ke Kedai Besi Buruk Selangor. Hubungi kami untuk bertanya tentang pembelian besi buruk, logam terpakai dan barangan kitar semula.</p>
-    <h2>Perkhidmatan Kami</h2>
-    <ul>
-      <li>Pembelian besi buruk</li>
-      <li>Pembelian logam terpakai</li>
-      <li>Kitar semula bahan logam</li>
-    </ul>
-    <h2>Hubungi Kami</h2>
-    <p>Sila hubungi kami untuk maklumat lanjut dan harga terkini.</p>
+    <section class="hero" id="utama">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">♻ Kitar semula, guna semula</span>
+          <h1>Kedai Besi Buruk <em>Selangor</em></h1>
+          <p>Pembelian besi buruk dan logam terpakai. Hubungi kami untuk pertanyaan, maklumat lanjut dan harga terkini.</p>
+          <div class="actions">
+            <!-- Gantikan 601175719389 dengan nombor telefon sebenar -->
+            <a class="btn btn-primary" href="tel:+601175719389">☎ Telefon Sekarang</a>
+            <a class="btn btn-secondary" href="https://wa.me/601175719389?text=Salam%2C%20saya%20ingin%20bertanya%20tentang%20besi%20buruk." target="_blank" rel="noopener">☏ WhatsApp Kami</a>
+          </div>
+          <div class="trust">
+            <span>Urusan mudah</span>
+            <span>Pelbagai jenis logam</span>
+            <span>Respons terus</span>
+          </div>
+        </div>
+        <div class="hero-art" role="img" aria-label="Latar industri kitar semula logam">
+          <span class="art-label">Perkhidmatan kami</span>
+          <h2>Besi buruk anda, bahan untuk digunakan semula.</h2>
+          <p>Hubungi kami untuk bertanya tentang jenis logam yang diterima.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap quick-info" aria-label="Maklumat ringkas">
+      <div class="info-grid">
+        <div class="info-item"><span class="info-icon">☎</span><span><strong>Hubungi terus</strong><small>Telefon atau WhatsApp</small></span></div>
+        <div class="info-item"><span class="info-icon">♻</span><span><strong>Kitar semula logam</strong><small>Bantu kurangkan pembaziran</small></span></div>
+        <div class="info-item"><span class="info-icon">⚖</span><span><strong>Tanya harga terkini</strong><small>Harga bergantung pada bahan</small></span></div>
+      </div>
+    </div>
+
+    <section class="content" id="perkhidmatan">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Apa yang kami lakukan</span>
+          <h2 class="section-title">Perkhidmatan Kami</h2>
+          <p>Kami membantu anda mendapatkan maklumat untuk menjual besi buruk dan logam terpakai.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-icon">🔩</div>
+            <h3>Pembelian Besi Buruk</h3>
+            <p>Hubungi kami untuk bertanya tentang besi buruk dan bahan besi yang anda ingin jual.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">⚙️</div>
+            <h3>Logam Terpakai</h3>
+            <p>Bertanya tentang penerimaan logam terpakai dan jenis bahan yang sesuai.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">♻️</div>
+            <h3>Kitar Semula Logam</h3>
+            <p>Memberi peluang kepada bahan logam untuk dikitar semula dan digunakan semula.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content about">
+      <div class="wrap about-grid">
+        <div class="about-panel">
+          <span class="big">♻</span>
+          <p>Langkah kecil untuk kitar semula yang lebih baik.</p>
+        </div>
+        <div class="about-copy">
+          <span class="eyebrow">Tentang kami</span>
+          <h2>Perlukan tempat untuk menjual besi buruk?</h2>
+          <p>Kedai Besi Buruk Selangor menyediakan saluran untuk anda bertanya tentang pembelian besi buruk dan logam terpakai.</p>
+          <ul>
+            <li>Hubungi kami untuk semak jenis bahan yang diterima.</li>
+            <li>Tanya harga terkini sebelum membuat urusan.</li>
+            <li>Berikan maklumat atau gambar bahan anda supaya pertanyaan lebih mudah difahami.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="content contact" id="hubungi">
+      <div class="wrap contact-grid">
+        <div>
+          <h2>Jom berbincang tentang besi buruk anda.</h2>
+          <p>Hubungi kami melalui telefon atau WhatsApp untuk pertanyaan jenis logam, harga terkini dan maklumat lanjut.</p>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href="tel:+601175719389">☎ Telefon Sekarang</a>
+          <a class="btn btn-secondary" href="https://wa.me/601175719389?text=Salam%2C%20saya%20ingin%20bertanya%20tentang%20besi%20buruk." target="_blank" rel="noopener">WhatsApp Kami</a>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer><p>&copy; 2026 Kedai Besi Buruk Selangor</p></footer>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© 2026 Kedai Besi Buruk Selangor. Hak cipta terpelihara.</span>
+      <span>Pembelian Besi Buruk &amp; Logam Terpakai</span>
+    </div>
+  </footer>
+
+  <!-- Butang WhatsApp terapung. Gantikan nombor contoh dengan nombor sebenar. -->
+  <a class="float-wa" href="https://wa.me/601175719389?text=Salam%2C%20saya%20ingin%20bertanya%20tentang%20besi%20buruk." target="_blank" rel="noopener" aria-label="Hubungi melalui WhatsApp">☏ WhatsApp</a>
 </body>
 </html>
+
